@@ -91,7 +91,11 @@
         <router-view />
       </div>
       <!-- 脚部 -->
-      <el-footer></el-footer>
+      <el-footer>
+        <div class="msg">
+          永远相信，美好的事情即将发生。
+        </div>
+      </el-footer>
   </div>
 </template>
 
@@ -168,5 +172,10 @@ export default {
 
 .el-footer {
   background-color: lightgrey;
+  padding: 10px 0;
+}
+.msg{
+  text-align: center;
+  margin-top: 10px;
 }
 </style>
