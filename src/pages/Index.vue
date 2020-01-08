@@ -72,8 +72,8 @@
             </div>
             <!-- 搜索 -->
             <div class="search">
-              <el-input placeholder="请输入内容">
-                <el-button slot="append" icon="fa fa-search"></el-button>
+              <el-input v-model="search" placeholder="请输入内容">
+                <el-button @click="searchUser" slot="append" icon="fa fa-search"></el-button>
               </el-input>
             </div>
             <!-- 热门 -->
@@ -136,6 +136,7 @@
                   <div class="line">努力工作，对自己负责，加油！</div>
                 </div>
             </div>
+            <!-- 最新评论 -->
             <div class="recent-comment">
               <div class="type">最新评论</div>
                 <div v-for="item in [1,2,3,4,5]" :key="item.id">
@@ -156,13 +157,23 @@ export default {
   data() {
     return {
       msg: "Welcome to index",
+      search: '',
       the_images:[
         { src: require('../assets/images/building.jpg')},
         { src: require('../assets/images/hand.jpg')},
         { src: require('../assets/images/cheers.jpg')},
         { src: require('../assets/images/food.jpg')}
         ]
-    };
+    }
+  },
+  methods:{
+    searchUser(){
+      this.axios
+            .get('/front/users')
+            .then(function(res) {
+              console.log(res.data)
+      })
+    }
   }
 };
 </script>
