@@ -169,9 +169,10 @@ export default {
   methods:{
     searchUser(){
       this.axios
-            .get('/front/users')
+            .get('/users')
             .then(function(res) {
-              console.log(res.data)
+              console.log(res.data.data.total)
+              console.log(parseInt(res.data.data.total))
       })
     }
   }
